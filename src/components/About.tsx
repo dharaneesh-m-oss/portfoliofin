@@ -17,7 +17,7 @@ export default function About() {
         transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
         className="mb-12 sm:mb-16"
       >
-        <TextReveal 
+        <TextReveal
           as="h2"
           text="Identity."
           className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-text-primary mb-4 text-balance"
@@ -117,7 +117,6 @@ export default function About() {
               />
               <p className="text-text-muted leading-relaxed">
                 I blend embedded systems, communication networks, and product thinking into real-world solutions.
-                This section now highlights the journey with a cleaner cinematic glass effect.
               </p>
             </div>
           </div>
