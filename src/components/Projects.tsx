@@ -79,7 +79,7 @@ export interface ProjectData {
   id: string;
   title: string;
   status: string;
-  hardware: string | null;
+  hardware?: string;
   domain: string;
   impact: string;
   tags: string[];

@@ -15,7 +15,8 @@ export default async function WorkPage() {
   const formattedProjects = projectsData.map(p => ({
     ...p,
     tags: JSON.parse(p.tags) as string[],
-    details: JSON.parse(p.details) as string[]
+    details: JSON.parse(p.details) as string[],
+    hardware: p.hardware ?? undefined,
   }));
 
   return (

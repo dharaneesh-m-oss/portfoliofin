@@ -6,7 +6,34 @@ import GlassButton from "@/components/ui/GlassButton";
 
 type Tab = "team" | "projects" | "experience" | "settings";
 
-// ... [interfaces stay same]
+interface Teammate {
+  id: string;
+  name: string;
+  role: string;
+  bio: string;
+  image: string;
+  linkedin: string;
+}
+
+interface Project {
+  id: string;
+  title: string;
+  status: string;
+  hardware: string;
+  domain: string;
+  impact: string;
+  tags: string[];
+  description: string;
+  details: string[];
+}
+
+interface Experience {
+  id: string;
+  title: string;
+  org: string;
+  date: string;
+  desc: string;
+}
 
 export default function AdminPage() {
   const [authenticated, setAuthenticated] = useState(false);
