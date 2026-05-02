@@ -9,6 +9,7 @@ interface LoadingScreenProps {
 
 export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -46,19 +47,22 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
     };
   }, [onComplete]);
 
-  // Helper function to render fur spans
+  // Helper function to render fur spans - Optimized for mobile
   const renderFur = () => {
-    return Array.from({ length: 31 }, (_, i) => (
-      <span key={i} className={`fur-${31 - i}`}></span>
+    const count = isMobile ? 15 : 31;
+    return Array.from({ length: count }, (_, i) => (
+      <span key={i} className={`fur-${count - i}`}></span>
     ));
   };
 
-  // Helper function to render lamp spans
+  // Helper function to render lamp spans - Optimized for mobile
   const renderLamps = () => {
-    return Array.from({ length: 28 }, (_, i) => (
+    const count = isMobile ? 12 : 28;
+    return Array.from({ length: count }, (_, i) => (
       <span key={i} className={`lamp-${i + 1}`}></span>
     ));
   };
+
 
   return (
     <div className="netflix-container" id="container">

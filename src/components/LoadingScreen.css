@@ -28,6 +28,7 @@
   animation: zoom-in 3.5s ease-in 0.5s forwards;
   background-size: 4000px;
   background-position: -1950px 0;
+  will-change: transform;
 }
 
 .netflix-intro::before {
@@ -60,6 +61,7 @@
   top: 0;
   transform: rotate(180deg);
   animation: fading-lumieres-box 2s 0.6s forwards;
+  will-change: background-color;
 }
 
 .netflix-intro[data-letter="D"] .helper-1 .effect-brush {
@@ -127,6 +129,7 @@
   height: 300%;
   top: 0;
   overflow: hidden;
+  will-change: transform;
 }
 
 .effect-brush::before {
@@ -144,6 +147,7 @@
   position: absolute;
   bottom: 10%;
   height: 30%;
+  transform: translateZ(0);
 }
 
 /* Generated Fur Spans */
@@ -186,6 +190,7 @@
   height: 100%;
   opacity: 0;
   animation: showing-lumieres 2s 1.6s forwards;
+  will-change: opacity;
 }
 
 [class*="lamp-"] {
@@ -194,6 +199,8 @@
   height: 100%;
   box-shadow: 0px 0px 10px 0px rgba(228, 9, 19, 0.75);
   background: var(--color);
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 [class*="lamp-"]::before {
@@ -205,6 +212,17 @@
   background: var(--color);
   box-shadow: 0px 0px 10px 0px rgba(228, 9, 19, 0.75);
 }
+
+@media (max-width: 640px) {
+  .effect-brush::before {
+    box-shadow: 0px 0px 15px 10px var(--netflix-red);
+  }
+  
+  [class*="lamp-"], [class*="lamp-"]::before {
+    box-shadow: 0px 0px 5px 0px rgba(228, 9, 19, 0.5);
+  }
+}
+
 
 .lamp-1 { --color: #ff0100; left: 0.7%; width: 1%; animation: lumieres-moving-left 5s forwards; }
 .lamp-2 { --color: #ffde01; left: 2.2%; width: 1.4%; animation: lumieres-moving-right 5s forwards; }
