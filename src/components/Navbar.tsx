@@ -102,10 +102,10 @@ export default function Navbar() {
           <motion.div
             initial={false}
             animate={isOpen ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: -20, scale: 0.95 }}
-            className={`absolute top-full left-0 right-0 mt-4 sm:hidden glass-panel p-4 overflow-hidden pointer-events-none ${isOpen ? "pointer-events-auto" : ""}`}
+            className={`absolute top-full left-0 right-0 mt-4 sm:hidden glass-panel p-4 overflow-hidden z-[100] pointer-events-none ${isOpen ? "pointer-events-auto" : ""}`}
             transition={{ duration: 0.2, ease: "easeOut" }}
           >
-            <ul className="flex flex-col space-y-2">
+            <ul className="flex flex-col space-y-2 relative z-[101]">
               {navItems.map((item) => {
                 const isActive = pathname === item.path;
                 return (
@@ -129,6 +129,7 @@ export default function Navbar() {
         </nav>
       </div>
     </motion.header>
+
 
   );
 }
