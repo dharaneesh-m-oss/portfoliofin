@@ -16,7 +16,7 @@
   overflow: hidden;
   position: fixed;
   inset: 0;
-  z-index: 9999999; /* Extra high to overcome stacking contexts */
+  z-index: 9999999;
 }
 
 .netflix-intro {
@@ -27,6 +27,14 @@
   overflow: hidden;
   animation: zoom-in 3.5s ease-in 0.5s forwards;
   will-change: transform;
+}
+
+/* Scaling for mobile to prevent breaking the D geometry */
+@media (max-width: 640px) {
+  .netflix-intro {
+    transform: scale(0.7);
+    transform-origin: center center;
+  }
 }
 
 .netflix-intro::before {
@@ -109,6 +117,7 @@
   height: 300%;
   top: 0;
   overflow: hidden;
+  will-change: transform;
 }
 
 .effect-brush::before {
@@ -126,7 +135,7 @@
   position: absolute;
   bottom: 10%;
   height: 30%;
-  transform: translateZ(0);
+  transform: translate3d(0,0,0);
 }
 
 /* Lumières Effects */
@@ -144,7 +153,7 @@
   height: 100%;
   box-shadow: 0px 0px 6px 0px rgba(228, 9, 19, 0.5);
   background: var(--color);
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(0,0,0);
   will-change: transform;
 }
 
@@ -156,19 +165,14 @@
   height: 100%;
   background: var(--color);
   box-shadow: 0px 0px 6px 0px rgba(228, 9, 19, 0.5);
-  transform: translate3d(0, 0, 0);
 }
 
 @media (max-width: 640px) {
-  .netflix-intro {
-    width: 200px;
-    height: 200px;
-  }
-  .netflix-intro .helper-4 {
-    top: 135px;
-  }
   [class*="lamp-"], [class*="lamp-"]::before {
     box-shadow: 0px 0px 2px 0px rgba(228, 9, 19, 0.3);
+  }
+  .effect-brush::before {
+    box-shadow: 0px 0px 15px 10px var(--netflix-red);
   }
 }
 
