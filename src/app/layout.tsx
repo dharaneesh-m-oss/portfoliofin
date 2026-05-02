@@ -51,7 +51,7 @@ export default async function RootLayout({
       <body className="min-h-screen flex flex-col relative text-text-primary bg-void font-body selection:bg-accent/20">
         <BackgroundAurora />
         <Navbar />
-        <main className="flex-1 w-full pt-24 z-10 relative">
+        <main className="flex-1 w-full pt-24 relative">
           {children}
         </main>
         <Footer />

@@ -10,13 +10,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: var(--netflix-bg);
   overflow: hidden;
   position: fixed;
   inset: 0;
-  z-index: 1000000;
+  z-index: 9999999; /* Extra high to overcome stacking contexts */
 }
 
 .netflix-intro {
@@ -26,8 +26,6 @@
   height: 300px;
   overflow: hidden;
   animation: zoom-in 3.5s ease-in 0.5s forwards;
-  background-size: 4000px;
-  background-position: -1950px 0;
   will-change: transform;
 }
 
@@ -42,39 +40,26 @@
   bottom: -27%;
   border-radius: 50%;
   z-index: 5;
-  transform-origin: left center;
-  background-size: 4000px;
-  background-position: -1950px 0;
-}
-
-.netflix-intro[data-letter="D"] {
-  transform-origin: center center;
 }
 
 /* Helper 1: Left Vertical Bar */
-.netflix-intro[data-letter="D"] .helper-1 {
+.netflix-intro .helper-1 {
   position: absolute;
   width: 19.5%;
   height: 100%;
-  background-color: rgba(228, 9, 19, 0.5);
+  background-color: var(--netflix-red);
   left: 22.4%;
   top: 0;
   transform: rotate(180deg);
   animation: fading-lumieres-box 2s 0.6s forwards;
-  will-change: background-color;
 }
 
-.netflix-intro[data-letter="D"] .helper-1 .effect-brush {
+.netflix-intro .helper-1 .effect-brush {
   animation: brush-moving 2.5s 1.2s forwards;
 }
 
-.netflix-intro[data-letter="D"] .helper-1 [class*="fur-"] {
-  bottom: 0;
-  height: 40%;
-}
-
 /* Helper 2: Top Horizontal Bar */
-.netflix-intro[data-letter="D"] .helper-2 {
+.netflix-intro .helper-2 {
   position: absolute;
   width: 19.5%;
   height: 48%;
@@ -84,12 +69,12 @@
   overflow: hidden;
 }
 
-.netflix-intro[data-letter="D"] .helper-2 .effect-brush {
+.netflix-intro .helper-2 .effect-brush {
   animation: brush-moving 2s 0.8s forwards;
 }
 
 /* Helper 3: Right Vertical Bar */
-.netflix-intro[data-letter="D"] .helper-3 {
+.netflix-intro .helper-3 {
   position: absolute;
   width: 19.5%;
   height: 100%;
@@ -99,12 +84,12 @@
   overflow: hidden;
 }
 
-.netflix-intro[data-letter="D"] .helper-3 .effect-brush {
+.netflix-intro .helper-3 .effect-brush {
   animation: brush-moving 2s 0.5s forwards;
 }
 
 /* Helper 4: Bottom Horizontal Bar */
-.netflix-intro[data-letter="D"] .helper-4 {
+.netflix-intro .helper-4 {
   position: absolute;
   width: 19.5%;
   height: 48%;
@@ -114,13 +99,8 @@
   overflow: hidden;
 }
 
-.netflix-intro[data-letter="D"] .helper-4 .effect-brush {
+.netflix-intro .helper-4 .effect-brush {
   animation: brush-moving 2s 0.5s forwards;
-}
-
-/* Brush & Fur Base Styles */
-[class*="helper-"] {
-  position: absolute;
 }
 
 .effect-brush {
@@ -129,7 +109,6 @@
   height: 300%;
   top: 0;
   overflow: hidden;
-  will-change: transform;
 }
 
 .effect-brush::before {
@@ -150,39 +129,6 @@
   transform: translateZ(0);
 }
 
-/* Generated Fur Spans */
-.fur-1 { left: 0%; width: 3.8%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 15%, transparent 81%, transparent 100%); }
-.fur-2 { left: 3.8%; width: 2.8%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 10%, transparent 62%, transparent 100%); }
-.fur-3 { left: 6.6%; width: 4.8%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 37%, transparent 100%); }
-.fur-4 { left: 11.4%; width: 4%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 23%, transparent 100%); }
-.fur-5 { left: 15.4%; width: 4%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 15%, transparent 86%, transparent 100%); }
-.fur-6 { left: 19.4%; width: 2.5%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 27%, transparent 89%, transparent 100%); }
-.fur-7 { left: 21.9%; width: 4%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 20%, transparent 100%); }
-.fur-8 { left: 25.9%; width: 2%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 30%, transparent 100%); }
-.fur-9 { left: 27.9%; width: 4%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 35%, transparent 95%, transparent 100%); }
-.fur-10 { left: 31.9%; width: 3.5%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 39%, transparent 95%, transparent 100%); }
-.fur-11 { left: 35.4%; width: 2%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 34%, transparent 95%, transparent 100%); }
-.fur-12 { left: 37.4%; width: 2.6%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 22%, transparent 95%, transparent 100%); }
-.fur-13 { left: 40%; width: 6%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 47%, transparent 100%); }
-.fur-14 { left: 46%; width: 2%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 36%, transparent 100%); }
-.fur-15 { left: 48%; width: 5.5%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 29%, transparent 100%); }
-.fur-16 { left: 53.5%; width: 3%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 39%, transparent 95%, transparent 100%); }
-.fur-17 { left: 56.5%; width: 4.1%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 45%, transparent 100%); }
-.fur-18 { left: 60.6%; width: 2.4%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 34%, transparent 100%); }
-.fur-19 { left: 63%; width: 4%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 47%, transparent 100%); }
-.fur-20 { left: 67%; width: 1.5%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 27%, transparent 95%, transparent 100%); }
-.fur-21 { left: 68.5%; width: 2.8%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 37%, transparent 100%); }
-.fur-22 { left: 71.3%; width: 2.3%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 9%, transparent 100%); }
-.fur-23 { left: 73.6%; width: 2.2%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 28%, transparent 92%, transparent 100%); }
-.fur-24 { left: 75.8%; width: 1%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 37%, transparent 100%); }
-.fur-25 { left: 76.8%; width: 2.1%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 28%, transparent 100%); }
-.fur-26 { left: 78.9%; width: 4.1%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 34%, transparent 100%); }
-.fur-27 { left: 83%; width: 2.5%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 21%, transparent 100%); }
-.fur-28 { left: 85.5%; width: 4.5%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 39%, transparent 100%); }
-.fur-29 { left: 90%; width: 2.8%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 30%, transparent 100%); }
-.fur-30 { left: 92.8%; width: 3.5%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 19%, transparent 100%); }
-.fur-31 { left: 96.3%; width: 3.7%; background: linear-gradient(to bottom, var(--netflix-red) 0%, var(--netflix-red) 37%, transparent 100%); }
-
 /* Lumières Effects */
 .effect-lumieres {
   position: absolute;
@@ -190,7 +136,6 @@
   height: 100%;
   opacity: 0;
   animation: showing-lumieres 2s 1.6s forwards;
-  will-change: opacity;
 }
 
 [class*="lamp-"] {
@@ -199,8 +144,6 @@
   height: 100%;
   box-shadow: 0px 0px 10px 0px rgba(228, 9, 19, 0.75);
   background: var(--color);
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
 }
 
 [class*="lamp-"]::before {
@@ -211,67 +154,22 @@
   height: 100%;
   background: var(--color);
   box-shadow: 0px 0px 10px 0px rgba(228, 9, 19, 0.75);
-  transform: translate3d(0, 0, 0);
 }
 
 @media (max-width: 640px) {
-  .effect-brush::before {
-    box-shadow: 0px 0px 15px 5px var(--netflix-red);
+  .netflix-intro {
+    width: 200px;
+    height: 200px;
   }
-  
-  [class*="lamp-"], [class*="lamp-"]::before {
-    box-shadow: 0px 0px 4px 0px rgba(228, 9, 19, 0.4);
+  .netflix-intro .helper-4 {
+    top: 135px;
   }
 }
-
-
-.lamp-1 { --color: #ff0100; left: 0.7%; width: 1%; animation: lumieres-moving-left 5s forwards; }
-.lamp-2 { --color: #ffde01; left: 2.2%; width: 1.4%; animation: lumieres-moving-right 5s forwards; }
-.lamp-3 { --color: #ff00cc; left: 5.8%; width: 2.1%; animation: lumieres-moving-left 5s forwards; }
-.lamp-4 { --color: #04fd8f; left: 10.1%; width: 2%; animation: lumieres-moving-right 5s forwards; }
-.lamp-5 { --color: #ff0100; left: 12.9%; width: 1.4%; animation: lumieres-moving-left 5s forwards; }
-.lamp-6 { --color: #ff9600; left: 15.3%; width: 2.8%; animation: lumieres-moving-right 5s forwards; }
-.lamp-7 { --color: #0084ff; left: 21.2%; width: 2.5%; animation: lumieres-moving-left 5s forwards; }
-.lamp-8 { --color: #f84006; left: 25%; width: 2.5%; animation: lumieres-moving-right 5s forwards; }
-.lamp-9 { --color: #ffc601; left: 30.5%; width: 3%; animation: lumieres-moving-left 5s forwards; }
-.lamp-10 { --color: #ff4800; left: 36.3%; width: 3%; animation: lumieres-moving-right 5s forwards; }
-.lamp-11 { --color: #fd0100; left: 41%; width: 2.2%; animation: lumieres-moving-left 5s forwards; }
-.lamp-12 { --color: #01ffff; left: 44.2%; width: 2.6%; animation: lumieres-moving-right 5s forwards; }
-.lamp-13 { --color: #ffc601; left: 51.7%; width: 0.5%; animation: lumieres-moving-left 5s forwards; }
-.lamp-14 { --color: #ffc601; left: 52.1%; width: 1.8%; animation: lumieres-moving-right 5s forwards; }
-.lamp-15 { --color: #0078fe; left: 53.8%; width: 2.3%; animation: lumieres-moving-left 5s forwards; }
-.lamp-16 { --color: #0080ff; left: 57.2%; width: 2%; animation: lumieres-moving-right 5s forwards; }
-.lamp-17 { --color: #ffae01; left: 62.3%; width: 2.9%; animation: lumieres-moving-left 5s forwards; }
-.lamp-18 { --color: #ff00bf; left: 65.8%; width: 1.7%; animation: lumieres-moving-right 5s forwards; }
-.lamp-19 { --color: #a601f4; left: 72.8%; width: 0.8%; animation: lumieres-moving-left 5s forwards; }
-.lamp-20 { --color: #f30b34; left: 74.3%; width: 2%; animation: lumieres-moving-right 5s forwards; }
-.lamp-21 { --color: #ff00bf; left: 79.8%; width: 2%; animation: lumieres-moving-left 5s forwards; }
-.lamp-22 { --color: #04fd8f; left: 78.2%; width: 2%; animation: lumieres-moving-right 5s forwards; }
-.lamp-23 { --color: #01ffff; left: 78.5%; width: 2%; animation: lumieres-moving-left 5s forwards; }
-.lamp-24 { --color: #a201ff; left: 85.3%; width: 1.1%; animation: lumieres-moving-right 5s forwards; }
-.lamp-25 { --color: #ec0014; left: 86.9%; width: 1.1%; animation: lumieres-moving-left 5s forwards; }
-.lamp-26 { --color: #0078fe; left: 88.8%; width: 2%; animation: lumieres-moving-right 5s forwards; }
-.lamp-27 { --color: #ff0036; left: 92.4%; width: 2.4%; animation: lumieres-moving-left 5s forwards; }
-.lamp-28 { --color: #06f98c; left: 96.2%; width: 2.1%; animation: lumieres-moving-right 5s forwards; }
 
 /* Keyframes */
 @keyframes brush-moving {
   0% { transform: translateY(0); }
   100% { transform: translateY(-100%); }
-}
-
-@keyframes lumieres-moving-right {
-  0% { transform: translate(0); }
-  40% { transform: translate(-10px) scaleX(1); }
-  50% { transform: translate(-60px); }
-  100% { transform: translate(-120px) scaleX(3); }
-}
-
-@keyframes lumieres-moving-left {
-  0% { transform: translate(0); }
-  40% { transform: translate(10px) scaleX(1); }
-  50% { transform: translate(60px); }
-  100% { transform: translate(120px) scaleX(3); }
 }
 
 @keyframes zoom-in {
@@ -288,3 +186,65 @@
   0% { background-color: rgba(228, 9, 19, 0.5); }
   100% { background-color: rgba(228, 9, 19, 0); }
 }
+
+/* Individual Fur Spans */
+.fur-1 { left: 0%; width: 3.8%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-2 { left: 3.8%; width: 2.8%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-3 { left: 6.6%; width: 4.8%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-4 { left: 11.4%; width: 4%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-5 { left: 15.4%; width: 4%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-6 { left: 19.4%; width: 2.5%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-7 { left: 21.9%; width: 4%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-8 { left: 25.9%; width: 2%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-9 { left: 27.9%; width: 4%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-10 { left: 31.9%; width: 3.5%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-11 { left: 35.4%; width: 2%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-12 { left: 37.4%; width: 2.6%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-13 { left: 40%; width: 6%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-14 { left: 46%; width: 2%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-15 { left: 48%; width: 5.5%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-16 { left: 53.5%; width: 3%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-17 { left: 56.5%; width: 4.1%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-18 { left: 60.6%; width: 2.4%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-19 { left: 63%; width: 4%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-20 { left: 67%; width: 1.5%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-21 { left: 68.5%; width: 2.8%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-22 { left: 71.3%; width: 2.3%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-23 { left: 73.6%; width: 2.2%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-24 { left: 75.8%; width: 1%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-25 { left: 76.8%; width: 2.1%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-26 { left: 78.9%; width: 4.1%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-27 { left: 83%; width: 2.5%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-28 { left: 85.5%; width: 4.5%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-29 { left: 90%; width: 2.8%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-30 { left: 92.8%; width: 3.5%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+.fur-31 { left: 96.3%; width: 3.7%; background: linear-gradient(to bottom, var(--netflix-red) 0%, transparent 100%); }
+
+.lamp-1 { --color: #ff0100; left: 0.7%; width: 1%; }
+.lamp-2 { --color: #ffde01; left: 2.2%; width: 1.4%; }
+.lamp-3 { --color: #ff00cc; left: 5.8%; width: 2.1%; }
+.lamp-4 { --color: #04fd8f; left: 10.1%; width: 2%; }
+.lamp-5 { --color: #ff0100; left: 12.9%; width: 1.4%; }
+.lamp-6 { --color: #ff9600; left: 15.3%; width: 2.8%; }
+.lamp-7 { --color: #0084ff; left: 21.2%; width: 2.5%; }
+.lamp-8 { --color: #f84006; left: 25%; width: 2.5%; }
+.lamp-9 { --color: #ffc601; left: 30.5%; width: 3%; }
+.lamp-10 { --color: #ff4800; left: 36.3%; width: 3%; }
+.lamp-11 { --color: #fd0100; left: 41%; width: 2.2%; }
+.lamp-12 { --color: #01ffff; left: 44.2%; width: 2.6%; }
+.lamp-13 { --color: #ffc601; left: 51.7%; width: 0.5%; }
+.lamp-14 { --color: #ffc601; left: 52.1%; width: 1.8%; }
+.lamp-15 { --color: #0078fe; left: 53.8%; width: 2.3%; }
+.lamp-16 { --color: #0080ff; left: 57.2%; width: 2%; }
+.lamp-17 { --color: #ffae01; left: 62.3%; width: 2.9%; }
+.lamp-18 { --color: #ff00bf; left: 65.8%; width: 1.7%; }
+.lamp-19 { --color: #a601f4; left: 72.8%; width: 0.8%; }
+.lamp-20 { --color: #f30b34; left: 74.3%; width: 2%; }
+.lamp-21 { --color: #ff00bf; left: 79.8%; width: 2%; }
+.lamp-22 { --color: #04fd8f; left: 78.2%; width: 2%; }
+.lamp-23 { --color: #01ffff; left: 78.5%; width: 2%; }
+.lamp-24 { --color: #a201ff; left: 85.3%; width: 1.1%; }
+.lamp-25 { --color: #ec0014; left: 86.9%; width: 1.1%; }
+.lamp-26 { --color: #0078fe; left: 88.8%; width: 2%; }
+.lamp-27 { --color: #ff0036; left: 92.4%; width: 2.4%; }
+.lamp-28 { --color: #06f98c; left: 96.2%; width: 2.1%; }
