@@ -47,21 +47,21 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
     };
   }, [onComplete]);
 
-  // Helper function to render fur spans - Optimized for mobile
+  // Helper function to render fur spans - High quality
   const renderFur = () => {
-    const count = isMobile ? 15 : 31;
-    return Array.from({ length: count }, (_, i) => (
-      <span key={i} className={`fur-${count - i}`}></span>
+    return Array.from({ length: 31 }, (_, i) => (
+      <span key={i} className={`fur-${31 - i}`}></span>
     ));
   };
 
-  // Helper function to render lamp spans - Optimized for mobile
+  // Helper function to render lamp spans - High quality
   const renderLamps = () => {
-    const count = isMobile ? 12 : 28;
-    return Array.from({ length: count }, (_, i) => (
+    return Array.from({ length: 28 }, (_, i) => (
       <span key={i} className={`lamp-${i + 1}`}></span>
     ));
   };
+
+
 
 
   return (

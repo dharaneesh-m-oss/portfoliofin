@@ -199,7 +199,7 @@
   height: 100%;
   box-shadow: 0px 0px 10px 0px rgba(228, 9, 19, 0.75);
   background: var(--color);
-  transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
   will-change: transform;
 }
 
@@ -211,15 +211,16 @@
   height: 100%;
   background: var(--color);
   box-shadow: 0px 0px 10px 0px rgba(228, 9, 19, 0.75);
+  transform: translate3d(0, 0, 0);
 }
 
 @media (max-width: 640px) {
   .effect-brush::before {
-    box-shadow: 0px 0px 15px 10px var(--netflix-red);
+    box-shadow: 0px 0px 15px 5px var(--netflix-red);
   }
   
   [class*="lamp-"], [class*="lamp-"]::before {
-    box-shadow: 0px 0px 5px 0px rgba(228, 9, 19, 0.5);
+    box-shadow: 0px 0px 4px 0px rgba(228, 9, 19, 0.4);
   }
 }
 

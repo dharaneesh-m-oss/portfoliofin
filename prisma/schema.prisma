@@ -14,32 +14,32 @@ model Project {
   hardware    String?
   domain      String
   impact      String
-  tags        String   // Stored as JSON string
+  tags        String
   description String
-  details     String   // Stored as JSON string
+  details     String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
 
 model Experience {
-  id          String   @id @default(cuid())
-  title       String
-  org         String
-  date        String
-  desc        String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id        String   @id @default(cuid())
+  title     String
+  org       String
+  date      String
+  desc      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Teammate {
-  id          String   @id @default(cuid())
-  name        String
-  role        String
-  bio         String
-  image       String?
-  linkedin    String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id        String   @id @default(cuid())
+  name      String
+  role      String
+  bio       String
+  image     String?
+  linkedin  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Setting {

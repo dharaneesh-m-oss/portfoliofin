@@ -6,9 +6,14 @@ import TeammateCard from "@/components/TeammateCard";
 export const dynamic = "force-dynamic";
 
 export default async function TeamPage() {
-  const team = await prisma.teammate.findMany({
-    orderBy: { createdAt: 'asc' }
-  });
+  let team: any[] = [];
+  try {
+    team = await prisma.teammate.findMany({
+      orderBy: { createdAt: 'asc' }
+    });
+  } catch (error) {
+    console.error("Database fetch error in TeamPage:", error);
+  }
 
   return (
     <div className="flex flex-col min-h-screen">
