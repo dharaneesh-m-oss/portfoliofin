@@ -78,11 +78,15 @@ export default function Navbar() {
 
           {/* Mobile Menu Button - Same UI aesthetic */}
           <button 
-            onClick={() => setIsOpen(!isOpen)}
-            className="sm:hidden p-2 hover:bg-black/5 rounded-full transition-colors relative z-50"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setIsOpen(!isOpen);
+            }}
+            className="sm:hidden p-3 hover:bg-black/5 rounded-full transition-colors relative z-[110]"
             aria-label="Toggle Menu"
           >
-            <div className="w-5 h-5 flex flex-col justify-center items-center space-y-1.5">
+            <div className="w-6 h-6 flex flex-col justify-center items-center space-y-1.5 pointer-events-none">
               <motion.span 
                 animate={isOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
                 className="w-full h-0.5 bg-text-primary block rounded-full" 
@@ -101,11 +105,11 @@ export default function Navbar() {
           {/* Mobile Dropdown - Preserves "Same UI" look */}
           <motion.div
             initial={false}
-            animate={isOpen ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: -20, scale: 0.95 }}
-            className={`absolute top-full left-0 right-0 mt-4 sm:hidden glass-panel p-4 overflow-hidden z-[100] pointer-events-none ${isOpen ? "pointer-events-auto" : ""}`}
+            animate={isOpen ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: -10, scale: 0.98 }}
+            className={`absolute top-full left-0 right-0 mt-4 sm:hidden glass-panel p-4 overflow-hidden z-[100] shadow-2xl ${isOpen ? "pointer-events-auto block" : "pointer-events-none hidden sm:hidden"}`}
             transition={{ duration: 0.2, ease: "easeOut" }}
           >
-            <ul className="flex flex-col space-y-2 relative z-[101]">
+            <ul className="flex flex-col space-y-2">
               {navItems.map((item) => {
                 const isActive = pathname === item.path;
                 return (
@@ -113,10 +117,10 @@ export default function Navbar() {
                     <Link
                       href={item.path}
                       onClick={() => setIsOpen(false)}
-                      className={`block px-4 py-3 rounded-2xl text-base font-medium transition-colors ${
+                      className={`block px-4 py-4 rounded-2xl text-lg font-medium transition-colors ${
                         isActive
                           ? "bg-black/5 text-text-primary"
-                          : "text-text-muted hover:text-text-primary"
+                          : "text-text-muted hover:text-text-primary active:bg-black/5"
                       }`}
                     >
                       {item.label}
@@ -126,6 +130,7 @@ export default function Navbar() {
               })}
             </ul>
           </motion.div>
+
         </nav>
       </div>
     </motion.header>

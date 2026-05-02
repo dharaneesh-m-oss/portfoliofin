@@ -52,17 +52,20 @@ export default function Hero() {
           transition={{ duration: 1, ease: [0.25, 1, 0.5, 1], delay: 0.5 }}
           className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-16 sm:mb-24"
         >
-          <Link href="/work" className="w-full sm:w-auto">
-            <GlassButton className="w-full sm:px-8">
-              Explore Projects
-              <ChevronRight className="w-4 h-4 ml-1" />
-            </GlassButton>
+          <Link 
+            href="/work" 
+            className="w-full sm:w-auto glass-button px-8 py-4 font-semibold hoverable flex items-center justify-center gap-2 sm:px-10"
+          >
+            Explore Projects
+            <ChevronRight className="w-4 h-4 ml-1" />
           </Link>
-          <a href="/Dharaneesh_Hardware_Resume_9.pdf" download className="w-full sm:w-auto">
-            <GlassButton className="w-full sm:px-8 !bg-white !text-black border border-black/10 shadow-sm hover:!bg-black/5">
-              Download Resume
-              <Download className="w-4 h-4 ml-1" />
-            </GlassButton>
+          <a 
+            href="/Dharaneesh_Hardware_Resume_9.pdf" 
+            download 
+            className="w-full sm:w-auto glass-button px-8 py-4 font-semibold hoverable flex items-center justify-center gap-2 sm:px-10 !bg-white !text-black border border-black/10 shadow-sm hover:!bg-black/5"
+          >
+            Download Resume
+            <Download className="w-4 h-4 ml-1" />
           </a>
         </motion.div>
 
