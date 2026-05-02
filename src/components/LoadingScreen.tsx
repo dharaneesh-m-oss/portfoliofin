@@ -54,12 +54,14 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
     ));
   };
 
-  // Helper function to render lamp spans - High quality
+  // Helper function to render lamp spans - Optimized for mobile
   const renderLamps = () => {
-    return Array.from({ length: 28 }, (_, i) => (
+    const count = isMobile ? 12 : 28;
+    return Array.from({ length: count }, (_, i) => (
       <span key={i} className={`lamp-${i + 1}`}></span>
     ));
   };
+
 
 
 
