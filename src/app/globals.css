@@ -1,26 +1,134 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-void: var(--void-color, #FBFBFD);
+  --color-surface: var(--surface-color, #FFFFFF);
+  --color-text-primary: var(--text-primary-color, #1D1D1F);
+  --color-text-muted: var(--text-muted-color, #86868B);
+  --color-accent: var(--accent-color, #0066CC);
+
+  --font-display: var(--font-geist-sans);
+  --font-body: var(--font-geist-sans);
+  --font-accent: var(--font-geist-sans);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  body {
+    background-color: var(--color-void);
+    background-image:
+      radial-gradient(45rem 30rem at 10% 15%, var(--aurora-1, rgba(175, 226, 255, 0.45)), transparent 60%),
+      radial-gradient(40rem 28rem at 85% 20%, var(--aurora-2, rgba(255, 254, 167, 0.4)), transparent 60%),
+      radial-gradient(42rem 30rem at 65% 85%, var(--aurora-3, rgba(255, 161, 161, 0.38)), transparent 62%),
+      linear-gradient(130deg, var(--bg-grad-1, #eff2ff) 0%, var(--bg-grad-2, #f8f9ff) 55%, var(--bg-grad-3, #edf0ff) 100%);
+    color: var(--color-text-primary);
+    font-family: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display), -apple-system, sans-serif;
+    letter-spacing: -0.02em;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+
+  /* Transparent liquid glass morphism */
+  .glass-panel {
+    background:
+      linear-gradient(130deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.14) 45%, rgba(255, 255, 255, 0.08)),
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.55), transparent 45%),
+      radial-gradient(circle at 85% 88%, rgba(255, 255, 255, 0.32), transparent 50%) !important;
+    backdrop-filter: blur(20px) saturate(190%); /* Reduced blur from 34px to 20px for better performance */
+    -webkit-backdrop-filter: blur(20px) saturate(190%);
+    border: 1px solid rgba(255, 255, 255, 0.62);
+    border-radius: 30px;
+    box-shadow:
+      0 20px 55px rgba(46, 54, 95, 0.18),
+      0 6px 18px rgba(255, 255, 255, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.35);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    transform: translateZ(0); /* Hardware acceleration */
+  }
+
+  .glass-panel:hover.hoverable {
+    box-shadow:
+      0 28px 72px rgba(46, 54, 95, 0.22),
+      0 8px 22px rgba(255, 255, 255, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transform: translateY(-4px);
+    background:
+      linear-gradient(130deg, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0.2) 45%, rgba(255, 255, 255, 0.1)),
+      radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.62), transparent 45%),
+      radial-gradient(circle at 85% 85%, rgba(255, 255, 255, 0.36), transparent 50%) !important;
+  }
+
+  .glass-button {
+    background: #1D1D1F;
+    color: #FFFFFF;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .glass-button:hover.hoverable {
+    background: #333336;
+    transform: scale(1.02);
+  }
+
+  /* Text Reveal Animation */
+  .text-reveal-h1 {
+    transform: scale(0.94);
+    animation: scale-up 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+  }
+
+  @keyframes scale-up {
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .text-reveal-span {
+    display: inline-block;
+    opacity: 0;
+    filter: blur(4px);
+    animation: fade-in-blur 0.8s var(--delay) forwards cubic-bezier(0.11, 0, 0.5, 0);
+  }
+
+  @keyframes fade-in-blur {
+    100% {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+}
+
+@layer utilities {
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2.5s infinite;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
