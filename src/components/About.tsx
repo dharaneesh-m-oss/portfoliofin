@@ -10,24 +10,24 @@ import TextReveal from "./ui/TextReveal";
 
 export default function About() {
   return (
-    <section className="relative py-12 px-6 max-w-5xl mx-auto">
+    <section className="relative py-8 sm:py-12 px-4 sm:px-6 max-w-5xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
-        className="mb-16"
+        className="mb-12 sm:mb-16"
       >
         <TextReveal 
           as="h2"
           text="Identity."
-          className="text-4xl md:text-6xl font-bold tracking-tight text-text-primary mb-4"
+          className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-text-primary mb-4 text-balance"
         />
-        <p className="text-xl text-text-muted max-w-2xl">
+        <p className="text-lg sm:text-xl text-text-muted max-w-2xl text-pretty">
           A brief overview of who I am and where I come from.
         </p>
       </motion.div>
 
-      <GlassCard className="grid grid-cols-1 lg:grid-cols-2 gap-12 p-8 md:p-16 mb-16">
+      <GlassCard className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 p-6 sm:p-10 md:p-16 mb-16">
         {/* Left - Identity Block */}
         <div className="flex flex-col space-y-8 justify-center">
           <div>
@@ -69,7 +69,7 @@ export default function About() {
         <div className="grid grid-cols-2 gap-6">
           <GlassCard className="col-span-2 h-56 overflow-hidden relative">
             <Image
-              src="/api/photos/shoreline"
+              src="/images/shoreline.png"
               alt="Dharaneesh at shoreline"
               fill
               className="object-cover contrast-120"
@@ -104,7 +104,7 @@ export default function About() {
           />
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div className="relative h-64 md:h-72 rounded-3xl overflow-hidden">
-              <Image src="/api/photos/shoreline" alt="Journey visual" fill className="object-cover" />
+              <Image src="/images/gateway.png" alt="Journey visual" fill className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
             </div>
             <div>

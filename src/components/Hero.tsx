@@ -12,7 +12,7 @@ import HackathonTrackRecord from "./HackathonTrackRecord";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center px-6 pt-12 pb-24 overflow-hidden">
+    <section className="relative min-h-[90vh] flex items-center justify-center px-4 sm:px-6 pt-24 sm:pt-12 pb-16 sm:pb-24 overflow-hidden">
       {/* Background Image Texture with subtle motion */}
       <motion.div
         initial={{ scale: 1.25, opacity: 0 }}
@@ -34,14 +34,14 @@ export default function Hero() {
 
         <TextReveal
           text="Engineering at the edge."
-          className="text-6xl sm:text-7xl md:text-8xl font-bold tracking-tight text-text-primary mb-6"
+          className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight text-text-primary mb-6 text-balance"
         />
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 5, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.25, 1, 0.5, 1], delay: 0.4 }}
-          className="text-xl md:text-2xl text-text-muted max-w-2xl mb-12 leading-relaxed"
+          className="text-lg sm:text-xl md:text-2xl text-text-muted max-w-2xl mb-8 sm:mb-12 leading-relaxed text-pretty"
         >
           I design robust circuits and self-healing mesh networks. Hardware first. Always.
         </motion.p>
@@ -50,16 +50,16 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.25, 1, 0.5, 1], delay: 0.5 }}
-          className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-24"
+          className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-16 sm:mb-24"
         >
           <Link href="/work" className="w-full sm:w-auto">
-            <GlassButton className="w-full">
+            <GlassButton className="w-full sm:px-8">
               Explore Projects
               <ChevronRight className="w-4 h-4 ml-1" />
             </GlassButton>
           </Link>
           <a href="/Dharaneesh_Hardware_Resume_9.pdf" download className="w-full sm:w-auto">
-            <GlassButton className="w-full !bg-white !text-black border border-black/10 shadow-sm hover:!bg-black/5">
+            <GlassButton className="w-full sm:px-8 !bg-white !text-black border border-black/10 shadow-sm hover:!bg-black/5">
               Download Resume
               <Download className="w-4 h-4 ml-1" />
             </GlassButton>
@@ -74,9 +74,9 @@ export default function Hero() {
           transition={{ duration: 1.5, ease: [0.25, 1, 0.5, 1], delay: 0.6 }}
           className="w-full max-w-4xl relative"
         >
-          <GlassCard className="aspect-[21/9] w-full flex items-center justify-center overflow-hidden relative">
+          <GlassCard className="aspect-video sm:aspect-[21/9] w-full flex items-center justify-center overflow-hidden relative">
             <div className="absolute inset-0 opacity-20 z-10 pointer-events-none">
-              <svg viewBox="0 0 800 340" className="w-full h-full text-white">
+              <svg viewBox="0 0 800 340" className="w-full h-full text-white" preserveAspectRatio="xMidYMid slice">
                 <path d="M0 170h180l40-40h220l35 35h325" stroke="currentColor" strokeWidth="1" fill="none" />
                 <path d="M0 215h130l55-55h160l60 60h395" stroke="currentColor" strokeWidth="0.8" fill="none" />
                 <circle cx="220" cy="130" r="4" fill="currentColor" />
@@ -93,6 +93,7 @@ export default function Hero() {
             </div>
           </GlassCard>
         </motion.div>
+
 
       </div>
     </section>

@@ -98,23 +98,23 @@ export default function Projects({ initialData }: ProjectProps) {
   const projectsToRender = initialData && initialData.length > 0 ? initialData : staticProjectsData;
 
   return (
-    <section className="relative py-12 px-6 max-w-5xl mx-auto">
+    <section className="relative py-12 px-4 sm:px-6 max-w-5xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
-        className="mb-16"
+        className="mb-12 sm:mb-16"
       >
-        <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-text-primary mb-4">
+        <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-text-primary mb-4 text-balance">
           Projects.
         </h2>
-        <p className="text-xl text-text-muted max-w-2xl">
+        <p className="text-lg sm:text-xl text-text-muted max-w-2xl text-pretty">
           Deployed systems and prototypes engineered from the ground up.
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
         {projectsToRender.map((project, idx) => (
           <motion.div
             key={project.id}
@@ -125,25 +125,25 @@ export default function Projects({ initialData }: ProjectProps) {
             onClick={() => setSelectedProject(project)}
             className="cursor-pointer group"
           >
-            <GlassCard className="p-10 h-full flex flex-col justify-between hover:bg-white/70">
+            <GlassCard className="p-6 sm:p-10 h-full flex flex-col justify-between hover:bg-white/70">
               <div>
-                <div className="text-xs font-semibold tracking-wider mb-4 text-[#0066CC] uppercase">
+                <div className="text-[10px] sm:text-xs font-semibold tracking-wider mb-3 sm:mb-4 text-[#0066CC] uppercase">
                   {project.status}
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-text-primary mb-2">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-text-primary mb-2 text-balance">
                   {project.title}
                 </h3>
-                <div className="text-sm font-medium text-text-muted mb-8">
+                <div className="text-xs sm:text-sm font-medium text-text-muted mb-6 sm:mb-8">
                   {project.hardware}
                 </div>
               </div>
 
               <div>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
+                <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
+                  {project.tags.map(tag => <Tag key={tag} className="text-[10px] sm:text-xs">{tag}</Tag>)}
                 </div>
-                <div className="bg-black/5 rounded-xl p-4">
-                  <p className="font-medium text-sm text-text-primary">
+                <div className="bg-black/5 rounded-xl p-3 sm:p-4">
+                  <p className="font-medium text-xs sm:text-sm text-text-primary">
                     {project.impact}
                   </p>
                 </div>
@@ -152,6 +152,7 @@ export default function Projects({ initialData }: ProjectProps) {
           </motion.div>
         ))}
       </div>
+
 
       {selectedProject && (
         <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />

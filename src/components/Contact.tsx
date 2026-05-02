@@ -97,7 +97,7 @@ export default function Contact() {
           <GlassCard className="p-2 overflow-hidden">
             <div className="relative h-48 w-full rounded-2xl overflow-hidden">
               <Image
-                src="/api/photos/portrait"
+                src="/images/portrait.png"
                 alt="Portrait"
                 fill
                 className="object-cover contrast-110"

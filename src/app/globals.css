@@ -110,9 +110,30 @@
       filter: blur(0);
     }
   }
+
+  /* Responsive refinements */
+  @media (max-width: 640px) {
+    .glass-panel {
+      padding: 1.25rem !important;
+      border-radius: 20px;
+    }
+    
+    .section-padding {
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+  }
 }
 
 @layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
   @keyframes shimmer {
     100% {
       transform: translateX(100%);

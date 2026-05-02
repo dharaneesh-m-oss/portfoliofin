@@ -66,23 +66,23 @@ const ProgressBar = ({ percent }: { percent: number }) => {
 
 export default function Skills() {
   return (
-    <section className="relative pb-24 px-6 max-w-5xl mx-auto">
+    <section className="relative pb-24 px-4 sm:px-6 max-w-5xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
-        className="mb-12"
+        className="mb-10 sm:mb-12"
       >
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-text-primary mb-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-text-primary mb-4 text-balance">
           Technical Stack.
         </h2>
-        <p className="text-xl text-text-muted max-w-2xl">
+        <p className="text-lg sm:text-xl text-text-muted max-w-2xl text-pretty">
           The tools and technologies I use to build robust hardware systems.
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
         {skillCategories.map((category, idx) => (
           <motion.div
             key={category.title}
@@ -91,7 +91,7 @@ export default function Skills() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1], delay: idx * 0.1 }}
           >
-            <GlassCard className="p-8 h-full bg-white/40">
+            <GlassCard className="p-6 sm:p-8 h-full bg-white/40">
               <h3 className="text-xl font-semibold tracking-tight text-text-primary mb-6">
                 {category.title}
               </h3>
