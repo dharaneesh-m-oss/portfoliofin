@@ -31,9 +31,9 @@ const staticTimelineData = [
   },
   {
     date: "May 2026 →",
-    title: "NIOT Intern",
-    org: "Govt. of India",
-    desc: "Ocean Tech R&D",
+    title: "IISC EMBEDDED INTERN",
+    org: "INDIAN INSTIUTE OF SCIENCE",
+    desc: "INTERN",
   },
 ];
 
